@@ -18,15 +18,154 @@
             <div>
                 <ul>
                     <li>ABOUT ME</li>
-                    <li>PERSONAL SKILLS</li>
-                    <li>PERSONAL INFORMATION</li>
                     <li>PROFESSIONAL SKILLS</li>
+                    <li>PERSONAL SKILLS</li>
                     <li>CODE EXAMPLE</li>
-                    <li>LANGUAGES</li>
                     <li>PERSONAL INFORMATION</li>
                 </ul>
             </div>
         </header>
+        <main>
+            <div>
+                <h2>ABOUT ME</h2>
+                <p></p>
+            </div>
+            <div>
+                <h2>PROFESSIONAL SKILLS</h2>
+                <table>
+                    <tr>
+                        <th rowspan="5">Programming languages</th>
+                        <td>C++</td>
+                        <td>Medium: good theoretical knowledge, practical skills</td>
+                    </tr>
+                    <tr>
+                        <td>Java</td>
+                        <td>Medium: good theoretical knowledge, practical skills</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>Medium: good theoretical knowledge, practical skills</td>
+                    </tr>
+                    <tr>
+                        <td>HTML</td>
+                        <td>Medium: good theoretical knowledge, practical skills</td>
+                    </tr>
+                    <tr>
+                        <td>CSS</td>
+                        <td>Medium: good theoretical knowledge, practical skills</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">Languages</th>
+                        <td>English</td>
+                        <td>Intermediate(B1)</td>
+                    </tr>
+                    <tr>
+                        <td>Polish</td>
+                        <td>Intermediate(B1)</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h2>PERSONAL SKILLS</h2>
+                <ul>
+                    <li>Analytical thinking</li>
+                    <li>Hardworking</li>
+                    <li>Ability to work efficiently both individually and in a team</li>
+                    <li>Quick learning</li>
+                    <li>Attentive</li>
+                    <li>Responsible</li>
+                    <li>Pedantic</li>
+                </ul>
+            </div>
+            <div>
+                <h2>CODE EXAMPLE</h2>
+                <div>
+
+                    <h4>Advanced zeros</h4>
+                    <div>
+                        <p>The get Errors Count function, which takes 
+                        any integer (1 <= number <= 10^7) as the first argument and any 
+                        integer base (2 <= base <= 256) as the second argument. 
+                        She needs to count the number of trailing zeros in the number, 
+                        the factorial of a number in base system.</p>
+                    </div>
+                    <code><pre>
+                            module.exports = function getZerosCount(number, base) {
+                                let factorials = [];
+                                let k = 2;
+                                while(k < base) {
+                                  while (base % k === 0 ){
+                                    factorials.push(k);
+                                    base /= k;
+                                  }
+                                  k++;
+                                }
+                                if (base > 1) {
+                                  factorials.push(base);
+                                }
+                                factorials.sort((a, b) => a - b);
+                                let zeros = [];
+                                let count = 1;
+                                for (let i = 0; i < factorials.length; i+= count){
+                                  let counter = 0;
+                                  for(let j = i; j <factorials.length; j++) {
+                                    if (factorials[i] === factorials[j]){
+                                      counter++;
+                                    } else {
+                                      count = counter;
+                                      break;
+                                    }
+                                  }
+                                  let result = 0;
+                                  let j = factorials[i];
+                                  while (true) {
+                                    result += (number - number % j)/ j;
+                                    j *= factorials[i];
+                                    if (j > number){
+                                      break;
+                                    }
+                                  }
+                                  zeros.push((result - result % counter) / counter);
+                                }
+                                return Math.min.apply(Math, zeros)
+                               }
+                    </pre></code>
+                </div>
+                <div>
+                    <h4>Money Exchange</h4>
+                    <p>The make Exchange method, 
+                        which determines the minimum number of coins required to make 
+                        changes to a given amount in us currency.</p>
+                    <code>
+                        <pre>
+                                module.exports = function makeExchange(currency) {
+                                    // Your code goes here!
+                                    // Return an object containing the minimum number of coins needed to make change
+                                    if(currency > 10000) return {error: "You are rich, my friend! We don't have so much coins for exchange"};
+                                    if(currency <= 0) return {};
+                                    var h = Math.floor(currency / 50);
+                                    var currency = currency % 50;
+                                    var q = Math.floor(currency / 25);
+                                    var currency = currency % 25;
+                                    var d = Math.floor(currency / 10);
+                                    var currency = currency % 10;
+                                    var n = Math.floor(currency / 5);
+                                    var currency =currency % 5;
+                                    var p = currency;
+                                    var result = {};
+                                    if (h > 0) result["H"] = h;
+                                    if (q > 0) result["Q"] = q;
+                                    if (d > 0) result["D"] = d;
+                                    if (n > 0) result["N"] = n;
+                                    if (p > 0) result["P"] = p;
+                                    return result;
+                                    
+                                }
+                        </pre>
+                    </code>
+                </div>
+            </div>
+        </main>
 
     </body>
 </html>
