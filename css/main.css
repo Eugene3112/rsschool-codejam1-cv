@@ -12,6 +12,9 @@ p {
     text-decoration: none;
     list-style-type: none;
   }
+  li a{
+    text-decoration: none;
+  }
   div {
       width:900px;
       margin:0 auto;
@@ -32,11 +35,6 @@ p {
     background-color: rgb(255, 255, 255);
     margin:0;
     margin-bottom:-20px;
-  }
-  td{
-      border-bottom: 2px;
-      border-bottom-color: black;
-
   }
   h2{
       padding-top:20px;
