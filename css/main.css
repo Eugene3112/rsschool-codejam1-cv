@@ -1,5 +1,6 @@
 body{
     width:1000px;
+    margin:0;
 }
 p {
     padding: 0 0;
@@ -40,3 +41,24 @@ p {
       padding-top:20px;
       color:rgb(95, 10, 10);
   }
+table{
+    width:500;
+    margin:0 auto;
+    border-collapse: collapse;
+    
+}
+td{
+    border-bottom: 3px solid rgb(62, 75, 145);
+    
+}
+th{
+    border-bottom: 3px solid rgb(21, 29, 75);
+    border-right: 3px solid rgb(21, 29, 75);
+    
+}
+.thigth{
+    border-bottom:none;
+}
+table td{
+    padding: 10px;
+}
